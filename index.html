@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Patience Fundraiser - Order Form</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="page">
+
+    <!-- ===== HEADER ===== -->
+    <header class="hero">
+      <div class="hero-pattern"></div>
+      <div class="hero-content">
+        <p class="bismillah">بسم الله الرحمن الرحيم</p>
+        <h1>Patience Fundraiser</h1>
+        <p class="subtitle">In support of our Umrah journey, Insha Allah 🌼</p>
+        <p class="family">Achmat, Ilhaam & children</p>
+      </div>
+    </header>
+
+    <!-- ===== STATUS BANNER (dynamic) ===== -->
+    <section id="statusBanner" class="status-banner" aria-live="polite"></section>
+
+    <!-- ===== ORDER AREA ===== -->
+    <main id="orderArea" class="order-area">
+
+      <!-- COMBO DEAL -->
+      <section class="card combo-card">
+        <div class="ribbon">Best Value</div>
+        <h2>Combo Deal — <span class="price">R160</span></h2>
+        <ul class="combo-list">
+          <li>1 × Chicken Burger &amp; Chips</li>
+          <li>1 × Beef Burger &amp; Chips</li>
+          <li>1 × Boerewors & Chips</li>
+          <li>3 × 330ml Bashew Drinks</li>
+        </ul>
+        <div class="qty-row">
+          <span class="qty-label">How many combos?</span>
+          <div class="stepper" data-item="combo">
+            <button type="button" class="minus" aria-label="Decrease combos">−</button>
+            <input type="number" class="qty" id="qty-combo" value="0" min="0" readonly />
+            <button type="button" class="plus" aria-label="Increase combos">+</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- INDIVIDUAL ITEMS -->
+      <section class="card">
+        <h2>Individual Meals</h2>
+        <p class="card-sub">Prefer a single meal? Order items on their own.</p>
+
+        <div class="item-row">
+          <div class="item-info">
+            <span class="item-name">Chicken Burger & Chips</span>
+            <span class="item-price">R50</span>
+          </div>
+          <div class="stepper" data-item="chicken">
+            <button type="button" class="minus" aria-label="Decrease chicken burgers">−</button>
+            <input type="number" class="qty" id="qty-chicken" value="0" min="0" readonly />
+            <button type="button" class="plus" aria-label="Increase chicken burgers">+</button>
+          </div>
+        </div>
+
+        <div class="item-row">
+          <div class="item-info">
+            <span class="item-name">Beef Burger & Chips</span>
+            <span class="item-price">R50</span>
+          </div>
+          <div class="stepper" data-item="beef">
+            <button type="button" class="minus" aria-label="Decrease beef burgers">−</button>
+            <input type="number" class="qty" id="qty-beef" value="0" min="0" readonly />
+            <button type="button" class="plus" aria-label="Increase beef burgers">+</button>
+          </div>
+        </div>
+
+        <div class="item-row">
+          <div class="item-info">
+            <span class="item-name">Boerewors & Chips</span>
+            <span class="item-price">R40</span>
+          </div>
+          <div class="stepper" data-item="boerewors">
+            <button type="button" class="minus" aria-label="Decrease boerewors">−</button>
+            <input type="number" class="qty" id="qty-boerewors" value="0" min="0" readonly />
+            <button type="button" class="plus" aria-label="Increase boerewors">+</button>
+          </div>
+        </div>
+
+        <div class="item-row">
+          <div class="item-info">
+            <span class="item-name">330ml Bashew Drink</span>
+            <span class="item-price">R10</span>
+          </div>
+          <div class="stepper" data-item="drink">
+            <button type="button" class="minus" aria-label="Decrease drinks">−</button>
+            <input type="number" class="qty" id="qty-drink" value="0" min="0" readonly />
+            <button type="button" class="plus" aria-label="Increase drinks">+</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- YOUR DETAILS -->
+      <section class="card">
+        <h2>Your Details</h2>
+        <form id="orderForm" novalidate>
+          <label for="custName">Full Name <span class="req">*</span></label>
+          <input type="text" id="custName" name="custName" placeholder="e.g. Fatima Adams" required />
+
+          <label for="custPhone">Phone Number <span class="req">*</span></label>
+          <input type="tel" id="custPhone" name="custPhone" placeholder="e.g. 082 123 4567" required />
+
+          <label for="custNotes">Notes (optional)</label>
+          <textarea id="custNotes" name="custNotes" rows="2" placeholder="Any special requests or collection time?"></textarea>
+
+          <!-- PAYMENT -->
+          <fieldset class="payment">
+            <legend>How will you pay? <span class="req">*</span></legend>
+
+            <label class="pay-option">
+              <input type="radio" name="payment" value="Cash on collection" required />
+              <span class="pay-text">
+                <strong>💵 Cash</strong>
+                <small>Pay when you collect</small>
+              </span>
+            </label>
+
+            <label class="pay-option">
+              <input type="radio" name="payment" value="EFT" />
+              <span class="pay-text">
+                <strong>🏦 EFT</strong>
+                <small>Bank transfer (details below)</small>
+              </span>
+            </label>
+          </fieldset>
+
+          <!-- EFT DETAILS -->
+          <div id="eftDetails" class="eft-box" hidden>
+            <h3>Banking Details</h3>
+            <table class="eft-table">
+              <tr><td>Account Name</td><td>[ YOUR ACCOUNT NAME ]</td></tr>
+              <tr><td>Bank</td><td>[ YOUR BANK ]</td></tr>
+              <tr><td>Account Number</td><td>[ XXXXXXXXXX ]</td></tr>
+              <tr><td>Account Type</td><td>[ Cheque / Savings ]</td></tr>
+              <tr><td>Branch Code</td><td>[ XXXXXX ]</td></tr>
+              <tr><td>Reference</td><td>Your Name + "Umrah"</td></tr>
+            </table>
+            <p class="eft-note">Please use your <strong>name</strong> as the payment reference and bring proof of payment on collection.</p>
+          </div>
+
+          <!-- ORDER SUMMARY -->
+          <div class="summary">
+            <h3>Order Summary</h3>
+            <ul id="summaryList" class="summary-list">
+              <li class="empty">No items selected yet.</li>
+            </ul>
+            <div class="total-row">
+              <span>Total</span>
+              <span id="totalAmount">R0</span>
+            </div>
+          </div>
+
+          <button type="submit" id="submitBtn" class="submit-btn">Place Order</button>
+          <p id="formMessage" class="form-message" aria-live="polite"></p>
+        </form>
+      </section>
+    </main>
+
+    <!-- ===== COLLECTION INFO ===== -->
+    <section class="card collection-card">
+      <h2>Collection</h2>
+      <p>📍 <strong>30 Farmfield Road, Schaapkraal</strong></p>
+      <p>🕔 <span id="collectionLine">Friday from 17h00</span></p>
+    </section>
+
+    <!-- ===== THANK YOU OVERLAY ===== -->
+    <div id="thankYou" class="thankyou-overlay" hidden>
+      <div class="thankyou-card">
+        <div class="check">✓</div>
+        <h2>Shukran! 🌼</h2>
+        <p id="thankYouMsg">Your order has been received.</p>
+        <button type="button" id="newOrderBtn" class="submit-btn">Place Another Order</button>
+      </div>
+    </div>
+
+    <!-- ===== PHOTO STRIP (optional) ===== -->
+    <section id="photoStrip" class="photo-strip" hidden>
+      <img id="photo1" class="strip-img" alt="Our Umrah journey" />
+      <img id="photo2" class="strip-img" alt="Our Umrah journey" />
+    </section>
+
+    <footer class="footer">
+      <p>Shukran for your support 🌼</p>
+      <p class="dua">May Allah accept our Umrah and bless all who contribute.</p>
+    </footer>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
