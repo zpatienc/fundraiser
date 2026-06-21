@@ -18,7 +18,7 @@ const CONFIG = {
   // 1) COLLECTION DATE(S) - format: "YYYY-MM-DD"
   //    Add one or more. The page shows the next upcoming one.
   EVENT_DATES: [
-    "2026-06-26"
+    "2026-07-03"
   ],
 
   // 2) COLLECTION TIME & PLACE (shown to customers)
