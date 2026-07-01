@@ -26,8 +26,8 @@ const CONFIG = {
   COLLECTION_PLACE: "30 Farmfield Road, Schaapkraal",
 
   // 3) ORDER DEADLINE - days before collection that orders close.
-  DEADLINE_DAYS_BEFORE: 1,
-  DEADLINE_HOUR: 23,        // 23 = 23:00 / 11pm
+  DEADLINE_DAYS_BEFORE: 0,
+  DEADLINE_HOUR: 8,        // 23 = 23:00 / 11pm
 
   // 4) PASTE YOUR GOOGLE APPS SCRIPT URL HERE (from setup)
   SCRIPT_URL: "https://script.google.com/macros/s/AKfycbyXEQUbdLm9Ac7Ge8YwU7yeC97DhoJAu817sQc7CgmquseyCmJJ_KThVUs34O8MbVQ/exec"
@@ -112,7 +112,7 @@ function renderStatus() {
     banner.className = "status-banner";
     banner.innerHTML = `
       <div class="collect-date">🕋 Collect: ${collectStr}, ${CONFIG.COLLECTION_TIME}</div>
-      <div class="deadline">Order before ${deadlineStr}</div>
+      <div class="deadline">Order before ${deadlineStr}, 08h00</div>
       <span class="countdown">${countdown}</span>
     `;
     collectionLine.textContent = `${collectStr}, ${CONFIG.COLLECTION_TIME}`;
